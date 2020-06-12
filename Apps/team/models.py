@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Student(models.Model):
-    SOF18='SOFT18'
+    SOFT18='SOFT18'
     LAT18='LAT18'
     PLAN_CHOICES=[
         (SOFT18,'SOF18'),
@@ -23,7 +23,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=50)
     group = models.IntegerField()
     semester = models.IntegerField(choices=SEMESTER_CHOICES, default=PRIMERO)
-    plan = models.CharField(max_length=5, choices=PLAN_CHOICES)
+    plan = models.CharField(max_length=7, choices=PLAN_CHOICES)
     liberado = models.BooleanField(default=False, blank=True)
     date_enrollment = models.DateTimeField(auto_now_add=True, blank=True)
 
@@ -61,7 +61,7 @@ class Team(models.Model):
         (CAFETERIA,'La cafe'),
     ]
     teacher = models.ForeignKey(User, on_delete=models.CASCADE)
-    sport = model.CharField(max_length=25, choices=SPORT_CHOICES, default=FUTBOL)
+    sport = models.CharField(max_length=25, choices=SPORT_CHOICES, default=FUTBOL)
     max_students = models.IntegerField(null=True)
     schedule = models.CharField(max_length=50)
     place = models.CharField(max_length=25, choices=PLACES_CHOICES, default=CANCHA_PASTO)
